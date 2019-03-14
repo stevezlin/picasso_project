@@ -1,0 +1,17 @@
+
+
+<div class="row">
+    {% for post in posts %}
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">{{ post.username }}</h3>
+                    <p class="card-text">{{ post.text }}</p>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <h3>No posts to show.</h3>
+    {% endfor %}
+</div>
+

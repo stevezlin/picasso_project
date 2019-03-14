@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Faceboop Search{% endblock %}
+{% block nav_feed_class %}active{% endblock %}
+
+{% block content %}
+
+
+<h1>Results for "{{ term }}"</h1>
+
+{% include "post_loop_snippet.html" %}
+
+{% endblock content %}

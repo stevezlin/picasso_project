@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Pic Asso Home{% endblock %}
+
+{% block content %}
+<h2>Pic Asso: Image Social Media</h2>
+<br />
+<br />
+
+{% if user.is_authenticated %}
+    <hr />
+    <h3>Welcome, {{ user }}</h3>
+    <hr />
+{% endif %}
+
+
+<div class="row">
+    <div class="col">
+        <h2>Register</h2>
+        <p>Sign Up Here</p>
+        <form class="" action="." method="POST">
+            <div class="card-body">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-success btn-lg">Register!</button>
+            </div>
+        </form>
+    </div>
+    <div class="col">
+        <h2>Login</h2>
+        <p>Have An Account? Log In Here</p>
+        <form class="" action="." method="POST">
+            {% csrf_token %}
+            <p><input placeholder="Username" name="username" /></p>
+            <p><input placeholder="Password" type="password" name="password" /></p>
+            <p><button class="btn btn-success btn-lg">Login</button></p>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
