@@ -4,10 +4,10 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib import auth
 
+# Uploadcare
 from .models import CreatePost
-
-class PostForm(forms.Form):
-    text = forms.CharField(widget=forms.Textarea)
+from .models import Post
+from .forms import PostForm
 
 
 class NewUserForm(forms.Form):
@@ -58,45 +58,21 @@ def all_users(request):
     return render(request, 'pages/user_list.html', context)
 
 
-
 def user_feed(request, username):
-    user = User.objects.get(username=username)
-
-    if request.method == 'POST':
-
-        # Create a form instance and populate it with data from the request
+    if request.method == "POST":
         form = PostForm(request.POST)
-
         if form.is_valid():
-            # Create a new WallPost object populated with the data we are
-            # giving it from the cleaned_data form
-
-            CreatePost.objects.create(
-                username=username, # Create using the current username
-                text=form.cleaned_data['text'],
-            )
-
-            # This will just redirect to the current page
-            return redirect(request.get_full_path())
-
+            post = form.save(commit=False)
+            post.save()
     else:
-        # if a GET we'll create a blank form
         form = PostForm()
 
-    # We need to get all the posts for this user's username
-    posts = CreatePost.objects.filter(username=username)
+    try:
+        posts = Post.objects.all()
+    except Post.DoesNotExist:
+        posts = None
 
-    context = {
-        'first_name': user.first_name,
-        'last_name': user.last_name,
-        'email': user.email,
-        'username': username,
-        'form': form,
-        'posts': posts,
-    }
-    return render(request, 'pages/feed.html', context)
-
-
+    return render(request, 'pages/feed.html', {'posts': posts, 'form': form})
 
 
 def delete_post(request, post_id):
@@ -106,8 +82,6 @@ def delete_post(request, post_id):
 
     # Cool trick to redirect to the previous page
     return redirect(request.META.get('HTTP_REFERER', '/'))
-
-
 
 
 def update_post(request, post_id):
@@ -120,4 +94,3 @@ def update_post(request, post_id):
 
     # Cool trick to redirect to the previous page
     return redirect(request.META.get('HTTP_REFERER', '/'))
-

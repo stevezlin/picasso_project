@@ -19,36 +19,19 @@
         <p><strong>Email:</strong> {{ email }}</p>
     </div>
     <div class="col">
-        <h2>{{ first_name }}'s Wall</h2>
+      <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Save"/>
+      </form>
+      {% if posts %}
+      {% for post in posts %}
+      <div class="col-md-4">
+        <img class="img-fluid" src="{{ post.photo.cdn_url }}-/crop/600x600/center/-/quality/lightest/" alt="">
+      </div>
+      {% endfor %}
+      {% endif %}
 
-        <h5>Write on {{ first_name }}'s wall</h5>
-        <form action="." method="POST">
-            {% csrf_token %}
-            {{ form.text }}
-            <button class="btn btn-success">Write</button>
-        </form>
-        <div class="row">
-            {% for post in posts %}
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <h2 class="card-text">{{ post.text }}</h2>
-
-                            <hr />
-                            <h5>Update</h5>
-                            <form action="/update-post/{{ post.id }}/" method="POST">
-                                {% csrf_token %}
-                                <p>Update text: <textarea name="text"></textarea>
-                                <button class="btn btn-info">Update</button></p>
-                            </form>
-                            <p><a class="btn btn-danger" href="/delete-post/{{ post.id }}/">Delete</a></p>
-                        </div>
-                    </div>
-                </div>
-            {% empty %}
-                <p>No posts to show.</p>
-            {% endfor %}
-        </div>
     </div>
 </div>
 
