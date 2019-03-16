@@ -1,89 +1,22 @@
-{% load static i18n %}<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}Picasso{% endblock title %}</title>
+    <title>{% block title %}Facebook{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    {{ form.media }}
+    <link href="static/styles.css" rel="stylesheet">
+  
 
-    {% block css %}
-
+    
     <!-- Latest compiled and minified Bootstrap 4 beta CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/lumen/bootstrap.min.css" crossorigin="anonymous">
 
-    {% endblock %}
 
     <style>
-
-        /* Let's make our logo look like You-Know-Who's */
-        .navbar-brand {
-            font-family: Roboto, Helvetica;
-            font-weight: 800;
-            letter-spacing: 1px;
-            font-size: 24pt;
-            padding-left:1em;
-            margin-right: 50px;
-        }
-
-        body {
-            background: #edf0f5;
-            display:inline-flex;
-        }
-
-        .nav-link {
-            font-size: 16pt;
-        }
-
-        form textarea,
-        form input {
-            font-size: 16pt;
-            max-height: 50px;
-            width: 300px;
-        }
-
-        form label {
-            font-size: 16pt;
-            font-weight: 200;
-            min-width: 100px;
-            vertical-align: top;
-        }
-        button.btn-lg {
-            font-size: 16pt;
-        }
-
-        .nav-container{
-            top:0;
-            min-height:100vh;
-            height:auto;
-            background: #000000 !important;
-            width:300px;
-
-        }
-
-        .brand-contain {
-            width:100%;
-            display:block;
-        }
-
-        .navlinks {
-            display:block;
-            font-size:1.25em;
-            font-weight:400;
-        }
-
-        .navlinks a {
-            color: #ffffff;
-        }
-
-        .navlinks:hover {
-            transform: translateY(-3px);
-            color:lightgrey;
-            transition: 0.5s ease-in-out;
-        }
+    
 
     </style>
 
@@ -93,7 +26,9 @@
 
 <div class="nav-container">
             <div class="brand-contain">
-            <a href="/" class="navbar-brand">PIC ASSO</a>
+            <br>
+            <center><img src="static/logo.png" height="150 px"><br>
+            <a href="/" class="navbar-brand">PICTASSO</a></center>
             </div>
             <div>
                 <ul>
@@ -153,3 +88,4 @@
     {% endblock javascript %}
   </body>
 </html>
+ 
