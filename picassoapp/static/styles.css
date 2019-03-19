@@ -1,6 +1,5 @@
-/* Let's make our logo look like You-Know-Who's */
 .navbar-brand {
-    font-family: Roboto, Helvetica;
+    font-family: 'Lobster', cursive;
     font-weight: 800;
     letter-spacing: 1px;
     font-size: 24pt;
@@ -14,6 +13,7 @@ body {
 }
 
 .nav-link {
+    font-family: 'Anton', sans-serif;
     font-size: 16pt;
 }
 

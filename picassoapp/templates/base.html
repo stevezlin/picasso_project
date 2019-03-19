@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}Rumi{% endblock title %}</title>
+    <title>{% block title %}piktograf{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -16,7 +16,7 @@
 
 
  <!-- google font -->
-<link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Anton|Lobster" rel="stylesheet"> 
 
 {{ form.media }}
   </head>
@@ -27,14 +27,14 @@
             <div class="brand-contain">
             <br>
             <center><img src="/static/logo.png" height="150 px"><br>
-            <a href="/" class="navbar-brand">Rumi</a></center>
+            <a href="/" class="navbar-brand">piktograf</a></center>
             </div>
             <div>
                 <ul>
-                    <li class="navlinks">
+                    <li class="nav-link">
                         <a href="{% url "home" %}">Home</a>
                     </li>
-                    <li class="navlinks">
+                    <li class="nav-link">
                         <a href="{% url "all_users" %}">Users</a>
                     </li>
 
