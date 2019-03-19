@@ -19,6 +19,8 @@
         <p><strong>Email:</strong> {{ email }}</p>
     </div>
 
+<!-- This is the upload form from the API -->
+
     <div class="col">
       <form action="" method="post">
         {% csrf_token %}
@@ -29,7 +31,7 @@
       {% if posts %}
       {% for post in posts %}
 
-
+<!-- This is where it should load the gallery -->
 
       <div class="row">
             <div class="col-md-1">
@@ -41,8 +43,8 @@
               </a>
             </div>
             <div class="col-md-7">
-              <p>{{  }}</p>
-              <p>{{  }}</p>
+              <p>{{ post.title }}</p>
+              <p>{{ post.caption }}</p>
               <a class="btn btn-primary" href="#">Action</a>
             </div>
           </div>
