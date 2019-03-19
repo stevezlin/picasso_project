@@ -18,23 +18,22 @@
         <p><strong>Last name:</strong> {{ last_name }}</p>
         <p><strong>Email:</strong> {{ email }}</p>
     </div>
-    
+
     <div class="col">
       <form action="" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Submit"/>
       </form>
-      
+
       {% if posts %}
       {% for post in posts %}
-      
-      
-      
-      
+
+
+
       <div class="row">
             <div class="col-md-1">
-            
+
               </div>
              <div class="col-md-4">
               <a href="#">
@@ -42,10 +41,9 @@
               </a>
             </div>
             <div class="col-md-7">
-              <h3>{{ card.card_title }}</h3>
-              <p>{{ card.card_skill_1 }}</p>
-              <p>{{ card.card_skill_2 }}</p>
-              <a class="btn btn-primary" href="#">Textify</a>
+              <p>{{  }}</p>
+              <p>{{  }}</p>
+              <a class="btn btn-primary" href="#">Action</a>
             </div>
           </div>
         <!-- /.row -->
