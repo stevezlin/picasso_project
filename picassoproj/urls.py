@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 from picassoapp import views
 
@@ -25,4 +27,4 @@ urlpatterns = [
     path('update-post/<post_id>/', views.update_post),
     path('users/', views.all_users, name="all_users"),
     path('admin/', admin.site.urls),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ username }} - Picasso Feed{% endblock %}
+{% block title %}{{ username }} - Rumi Feed{% endblock %}
 
 {% block content %}
 
@@ -18,17 +18,39 @@
         <p><strong>Last name:</strong> {{ last_name }}</p>
         <p><strong>Email:</strong> {{ email }}</p>
     </div>
+    
     <div class="col">
       <form action="" method="post">
         {% csrf_token %}
         {{ form }}
-        <input type="submit" value="Save"/>
+        <input type="submit" value="Submit"/>
       </form>
+      
       {% if posts %}
       {% for post in posts %}
-      <div class="col-md-4">
-        <img class="img-fluid" src="{{ post.photo.cdn_url }}-/crop/600x600/center/-/quality/lightest/" alt="">
-      </div>
+      
+      
+      
+      
+      <div class="row">
+            <div class="col-md-1">
+            
+              </div>
+             <div class="col-md-4">
+              <a href="#">
+                <img class="img-fluid rounded mb-3 mb-md-0" width="200" src="{{ post.photo.cdn_url }}-/crop/600x600/center/-/quality/lightest/" alt="">
+              </a>
+            </div>
+            <div class="col-md-7">
+              <h3>{{ card.card_title }}</h3>
+              <p>{{ card.card_skill_1 }}</p>
+              <p>{{ card.card_skill_2 }}</p>
+              <a class="btn btn-primary" href="#">Textify</a>
+            </div>
+          </div>
+        <!-- /.row -->
+
+          <hr>
       {% endfor %}
       {% endif %}
 
