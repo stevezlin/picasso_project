@@ -28,21 +28,29 @@
             <br>
             <center><img src="/static/logo.png" height="150 px"><br>
             <a href="/" class="navbar-brand">piktograf</a></center>
+            <hr>
             </div>
             <div>
                 <ul>
-                    <li class="nav-link">
+                   <li class="nav-link">
+                        <center> 
                         <a href="{% url "home" %}">Home</a>
+                        </center>
                     </li>
-                    <li class="nav-link">
+                   <li class="nav-link">
+                        <center> 
                         <a href="{% url "all_users" %}">Users</a>
+                        </center>
                     </li>
-
+                    
                     <!-- If the user is logged in, greet them -->
                     {% if user.is_authenticated %}
-                        <li class="navlinks">
-                            <a href="/user/{{ user.username }}/">{{ user }} (you)</a>
-                        </li>
+                       
+                    <li class="navlinks">
+                        <center>
+                        <a href="/user/{{ user.username }}/">{{ user }}</a>
+                        </center>
+                    </li>
                     {% endif %}
                 </ul>
             </div>

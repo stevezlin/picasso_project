@@ -1,3 +1,4 @@
+/* logo styling */
 .navbar-brand {
     font-family: 'Lobster', cursive;
     font-weight: 800;
@@ -5,16 +6,23 @@
     font-size: 24pt;
     padding-left:1em;
     margin-right: 50px;
+    background: -webkit-linear-gradient(#A50, #A0E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
+/*background color */
 body {
     background: #edf0f5;
     display:inline-flex;
 }
 
 .nav-link {
+    color: #white;
     font-family: 'Anton', sans-serif;
     font-size: 16pt;
+    padding-left:1em;
+    margin-right: 50px;
 }
 
 form textarea,
@@ -34,11 +42,12 @@ button.btn-lg {
     font-size: 16pt;
 }
 
+/* side bar styling */
 .nav-container{
     top:0;
     min-height:100vh;
     height:auto;
-    background: #BDDBBD !important;
+    background: #72BCD2 !important;
     width:550px;
 
 }
@@ -51,11 +60,16 @@ button.btn-lg {
 .navlinks {
     display:block;
     font-size:1.25em;
-    font-weight:400;
+    font-weight: 400;
+    font-family: 'Anton', sans-serif;
+    font-size: 16pt;   
+    padding-left: 1em;
+    margin-right: 50px; 
 }
 
+/* color of the username on the side bar */
 .navlinks a {
-    color: #ffffff;
+    color: #fff;
 }
 
 .navlinks:hover {
