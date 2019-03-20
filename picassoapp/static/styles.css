@@ -19,13 +19,32 @@ hr {
 
 /*text for the profile section in feed.html */
 .profile {
-    color: #66625A;
+    color: #ffffff;
     font-family: 'Roboto Condensed', sans-serif;
     letter-spacing: 1px;
     font-size: 15pt;
-    border: 1px solid #72BCD2;
+    border: 1px solid white;
     padding: 0.5em;
-    background: #B9DADA;    
+    background: #72BCD2;    
+}
+
+div.card-body2 {
+	background-color: #72BCD2;
+	padding: 0.5em;
+}
+
+h3.card-title {
+	color: #66625A;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+    padding: 0.5em;
+}
+
+li.list-group-item {
+	color: #66625A;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+    padding: 0.5em;
 }
 
 /* text for registeration/login */
