@@ -4,20 +4,17 @@
 
 {% block content %}
 
-<h1>Welcome, {{ user }}</h1>
-<br />
-<br />
+<center><h1 class="header-text">Welcome, {{ user }}!</h1></center>
+<hr>
+<div class="col">
+    <p class="profile"><strong>Profile</p>
+    <p class="profile"><strong>First name:</strong> {{ first_name }}</p>
+    <p class="profile"><strong>Last name:</strong> {{ last_name }}</p>
+    <p class="profile"><strong>Email:</strong> {{ email }}</p>
+    <br />
+    <br />
+</div>
 
-
-
-
-<div class="row">
-    <div class="col-sm-4">
-        <h2>Profile</h2>
-        <p><strong>First name:</strong> {{ first_name }}</p>
-        <p><strong>Last name:</strong> {{ last_name }}</p>
-        <p><strong>Email:</strong> {{ email }}</p>
-    </div>
 
 <!-- This is the upload form from the API -->
 
@@ -25,7 +22,7 @@
       <form action="" method="post">
         {% csrf_token %}
         {{ form }}
-        <input type="submit" value="Submit"/>
+        <input type="submit" class="btn btn-primary" value="Submit"/>
       </form>
 
       {% if posts %}

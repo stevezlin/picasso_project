@@ -3,12 +3,57 @@
     font-family: 'Lobster', cursive;
     font-weight: 800;
     letter-spacing: 1px;
-    font-size: 24pt;
+    font-size: 30pt;
     padding-left:1em;
     margin-right: 50px;
     background: -webkit-linear-gradient(#A50, #A0E);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+hr {
+    background-color: white;
+    border: 1;
+    margin-left:5em;
+}
+
+/*text for the profile section in feed.html */
+.profile {
+    color: #66625A;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+    font-size: 15pt;
+    border: 1px solid #72BCD2;
+    padding: 0.5em;
+    background: #B9DADA;    
+}
+
+/* text for registeration/login */
+.reg-text {
+    color: #66625A;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+    padding: 0.5em;
+}
+
+div.col-sm-4 {
+  border: 2px solid white;
+  background: white;
+  
+}
+
+img.logo:hover {
+    cursor: default;
+    transform: rotate(360deg);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.header-text {
+    font-family: 'Lobster', cursive;
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-size: 60pt;
+    color: #72BCD2;
 }
 
 /*background color */
@@ -18,9 +63,9 @@ body {
 }
 
 .nav-link {
-    color: #white;
+    color: white;
     font-family: 'Anton', sans-serif;
-    font-size: 16pt;
+    font-size: 20pt;
     padding-left:1em;
     margin-right: 50px;
 }
@@ -62,8 +107,8 @@ button.btn-lg {
     font-size:1.25em;
     font-weight: 400;
     font-family: 'Anton', sans-serif;
-    font-size: 16pt;   
-    padding-left: 1em;
+    font-size: 20pt;   
+    padding-left: 0em;
     margin-right: 50px; 
 }
 
@@ -80,9 +125,7 @@ button.btn-lg {
 }
 
 .nav-brand {
-
     font-family: Kalam;
-    
  }
 
 

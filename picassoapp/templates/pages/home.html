@@ -8,15 +8,15 @@
 
 {% if user.is_authenticated %}
     <hr />
-    <h3>Welcome, {{ user }}</h3>
+    <h3 class="header-text">Welcome, {{ user }}</h3>
     <hr />
 {% endif %}
 
 
 <div class="row">
     <div class="col">
-        <h2>Register</h2>
-        <p>Sign Up Here</p>
+        <h2 class="profile">Register</h2>
+        <p class="reg-text">Sign Up Here</p>
         <form class="" action="." method="POST">
             <div class="card-body">
                 {% csrf_token %}
@@ -26,8 +26,8 @@
         </form>
     </div>
     <div class="col">
-        <h2>Login</h2>
-        <p>Have An Account? Log In Here</p>
+        <h2 class="profile">Login</h2>
+        <p class="reg-text">Have An Account? Log In Here</p>
         <form class="" action="." method="POST">
             {% csrf_token %}
             <p><input placeholder="Username" name="username" /></p>
