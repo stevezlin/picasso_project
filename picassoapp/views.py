@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 
 # Uploadcare
-from .models import CreatePost
+
 from .models import UploadImage
 from .forms import PostForm
 
