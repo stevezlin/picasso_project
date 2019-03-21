@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import UploadImage
 from pyuploadcare.dj.forms import ImageField
 
 
@@ -7,5 +7,5 @@ class PostForm(forms.ModelForm):
     photo = ImageField(label='')
 
     class Meta:
-        model = Post
+        model = UploadImage
         fields = ('photo',)

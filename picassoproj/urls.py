@@ -24,7 +24,7 @@ urlpatterns = [
     path('', views.homepage, name="home"),
     path('user/<username>/', views.user_feed, name="user_feed"),
     path('delete-post/<post_id>/', views.delete_post),
-    path('update-post/<post_id>/', views.update_post),
+    path('like-post/<post_id>/', views.like_post),
     path('users/', views.all_users, name="all_users"),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

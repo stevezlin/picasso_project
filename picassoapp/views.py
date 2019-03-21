@@ -6,9 +6,8 @@ from django.contrib import auth
 
 # Uploadcare
 from .models import CreatePost
-from .models import Post
+from .models import UploadImage
 from .forms import PostForm
-
 
 class NewUserForm(forms.Form):
     username = forms.CharField(max_length=100)
@@ -18,6 +17,13 @@ class NewUserForm(forms.Form):
     email = forms.EmailField()
 
 
+class EditUserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email']
+
+
+
 def homepage(request):
     if request.method == 'POST':
 
@@ -25,18 +31,12 @@ def homepage(request):
         form = NewUserForm(request.POST)
 
         if form.is_valid():
-            # Create a new user object populated with the data we are
-            # giving it from the cleaned_data form
-            user = User.objects.create(
-                username=form.cleaned_data['username'],
-                first_name=form.cleaned_data['first_name'],
-                last_name=form.cleaned_data['last_name'],
-                password=form.cleaned_data['password'],
-                email=form.cleaned_data['email'],
-            )
+            # Create a new user object using the ModelForm's built-in .save()
+            # giving it from the cleaned_data form.
+            user = form.save()
 
             # As soon as our new user is created, we make this user be
-            # instantly "logged in"
+            # instantly "logged in".
             auth.login(request, user)
             return redirect('/')
 
@@ -50,15 +50,23 @@ def homepage(request):
     return render(request, 'pages/home.html', context)
 
 
+
+#Lists all users
 def all_users(request):
-    users = User.objects.all()
+    users = User.objects.order_by('date_joined')
     context = {
         'users': users,
     }
     return render(request, 'pages/user_list.html', context)
 
 
+
 def user_feed(request, username):
+    users = User.objects.all()
+    context = {
+
+    }
+    
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
@@ -68,8 +76,8 @@ def user_feed(request, username):
         form = PostForm()
 
     try:
-        posts = Post.objects.all()
-    except Post.DoesNotExist:
+        posts = UploadImage.objects.all()
+    except UploadImage.DoesNotExist:
         posts = None
 
     return render(request, 'pages/feed.html', {'posts': posts, 'form': form})
@@ -77,20 +85,22 @@ def user_feed(request, username):
 
 def delete_post(request, post_id):
     # Fetch the right WallPost with the post_id, then delete it.
-    post = CreatePost.objects.get(id=post_id)
+    post = UploadImage.objects.get(id=post_id)
     post.delete()
 
     # Cool trick to redirect to the previous page
     return redirect(request.META.get('HTTP_REFERER', '/'))
+    
+    
+def like_post(request, post_id):
+    # Update the tweet to add the user as a "liker"
+    post = UploadImage.objects.get(id=post_id)
+    post.liked.add(request.user)
+    # tweet.save() # Already adds!
 
-
-def update_post(request, post_id):
-    new_text = request.POST['text']
-
-    # Load post and then update with new_text
-    post = CreatePost.objects.get(id=post_id)
-    post.text = new_text
-    post.save()
-
-    # Cool trick to redirect to the previous page
+    # Redirect to wherever they came from
     return redirect(request.META.get('HTTP_REFERER', '/'))
+    
+
+
+
