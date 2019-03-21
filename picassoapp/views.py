@@ -33,8 +33,14 @@ def homepage(request):
         if form.is_valid():
             # Create a new user object using the ModelForm's built-in .save()
             # giving it from the cleaned_data form.
-            user = form.save()
-
+            user = User.objects.create(
+                username=form.cleaned_data['username'],
+                first_name=form.cleaned_data['first_name'],
+                last_name=form.cleaned_data['last_name'],
+                password=form.cleaned_data['password'],
+                email=form.cleaned_data['email'],
+            )   
+               
             # As soon as our new user is created, we make this user be
             # instantly "logged in".
             auth.login(request, user)
