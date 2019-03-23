@@ -9,6 +9,7 @@ from django.contrib import auth
 from .models import UploadImage
 from .forms import PostForm
 
+
 class NewUserForm(forms.Form):
     username = forms.CharField(max_length=100)
     first_name = forms.CharField(max_length=100)
@@ -21,7 +22,6 @@ class EditUserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email']
-
 
 
 def homepage(request):
@@ -39,8 +39,8 @@ def homepage(request):
                 last_name=form.cleaned_data['last_name'],
                 password=form.cleaned_data['password'],
                 email=form.cleaned_data['email'],
-            )   
-               
+            )
+
             # As soon as our new user is created, we make this user be
             # instantly "logged in".
             auth.login(request, user)
@@ -56,8 +56,7 @@ def homepage(request):
     return render(request, 'pages/home.html', context)
 
 
-
-#Lists all users
+# Lists all users
 def all_users(request):
     users = User.objects.order_by('date_joined')
     context = {
@@ -66,13 +65,8 @@ def all_users(request):
     return render(request, 'pages/user_list.html', context)
 
 
-
 def user_feed(request, username):
-    users = User.objects.all()
-    context = {
 
-    }
-    
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
@@ -96,8 +90,8 @@ def delete_post(request, post_id):
 
     # Cool trick to redirect to the previous page
     return redirect(request.META.get('HTTP_REFERER', '/'))
-    
-    
+
+
 def like_post(request, post_id):
     # Update the tweet to add the user as a "liker"
     post = UploadImage.objects.get(id=post_id)
@@ -106,7 +100,11 @@ def like_post(request, post_id):
 
     # Redirect to wherever they came from
     return redirect(request.META.get('HTTP_REFERER', '/'))
-    
 
 
-
+def view_all_posts(request):
+    posts = UploadImage.objects.order_by('-created')
+    context = {
+        'posts': posts,
+    }
+    return render(request, 'pages/all_posts.html', context)

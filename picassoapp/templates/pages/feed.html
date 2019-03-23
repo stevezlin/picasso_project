@@ -8,15 +8,6 @@
 <hr>
 <center><h1 class="header-text">Welcome, {{ user }}!</h1></center>
 <hr>
-<div class="col">
-    <p class="profile"><strong>Profile</p>
-    <p class="profile"><strong>First name:</strong> {{ first_name }}</p>
-    <p class="profile"><strong>Last name:</strong> {{ last_name }}</p>
-    <p class="profile"><strong>Email:</strong> {{ email }}</p>
-    <br />
-    <br />
-</div>
-
 
 <!-- This is the upload form from the API -->
 
@@ -44,7 +35,7 @@
             <div class="col-md-7">
               <p>{{ post.title }}</p>
               <p>{{ post.caption }}</p>
-              
+
               <a href="/like-post/{{ post.id }}/" class="btn btn-primary" >Like</a>
               <a href="/delete-post/{{ post.id }}/" class="btn btn-primary" >Delete</a>
             </div>
